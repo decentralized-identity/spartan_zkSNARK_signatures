@@ -1,7 +1,7 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-02-20T00:12:28.636459+00:00",
-  "repo": "decentralized-identity/template-IETF-bound",
+  "timestamp": "2022-02-24T00:05:02.458194+00:00",
+  "repo": "decentralized-identity/spartan_zkSNARK_signatures",
   "labels": [
     {
       "name": "bug",
