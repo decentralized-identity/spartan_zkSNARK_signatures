@@ -5,16 +5,16 @@ category: info
 
 docname: draft-setty-cfrg-spartan-incubation-latest
 ipr: trust200902
-area: AREA
-workgroup: WG Working Group
+area: "IRTF"
+workgroup: "Crypto Forum"
 keyword: Internet-Draft
 venue:
-  group: WG
-  type: Working Group
-  mail: WG@example.com
-  arch: https://example.com/WG
-  github: USER/REPO
-  latest: https://example.com/LATEST
+  group: "Crypto Forum"
+  type: "Research Group"
+  mail: "cfrg@ietf.org"
+  arch: "https://mailarchive.ietf.org/arch/search/?email_list=cfrg"
+  github: "decentralized-identity/spartan_zkSNARK_signatures"
+  latest: "https://decentralized-identity.github.io/spartan_zkSNARK_signatures/draft-setty-cfrg-spartan-incubation.html"
 
 stand_alone: yes
 smart_quotes: no
