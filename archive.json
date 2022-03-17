@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-03-15T00:05:26.698348+00:00",
+  "timestamp": "2022-03-17T00:05:21.779153+00:00",
   "repo": "decentralized-identity/spartan_zkSNARK_signatures",
   "labels": [
     {
@@ -49,7 +49,24 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 3,
+      "id": "I_kwDOG4otrc5FtAaj",
+      "title": "Readme suggestion: Link to whitepaper (passive donation to DIF)",
+      "url": "https://github.com/decentralized-identity/spartan_zkSNARK_signatures/issues/3",
+      "state": "OPEN",
+      "author": "bumblefudge",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "A year ago, before there was an AppCry WG to donate it to, MSR donated the whitepaper to the C&C WG, where it currently sits in a repo all by its lonesome:\r\nhttps://github.com/decentralized-identity/snark-credentials\r\n\r\nMaybe when this work item takes off and gets a readme, link to it there? And include it in the references of the IETF draft if that's where this all leads?\r\n\r\nSidenote: if you're recruiting, try shooting up a flare in the DIF newsletter! I think there are lots of small startups that are in the low-to-zero-DIF-participation category very enthusiastic about SNARKs who would be glad to follow along and have the occasional chore or editorial PR assigned to them!",
+      "createdAt": "2022-03-15T09:49:36Z",
+      "updatedAt": "2022-03-15T09:49:36Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,
