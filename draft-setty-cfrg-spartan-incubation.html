@@ -4,16 +4,17 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>TODO - Your title</title>
-<meta content="Paul Grehan" name="author">
+<title>Spartan High-speed zkSNARKs (incubation)</title>
+<meta content="Srinath Setty" name="author">
 <meta content="
-       TODO Abstract 
+       Spartan is a high-speed zero-knowledge proof system, a cryptographic primitive that enables a prover to prove a mathematical statement to a verifier without revealing anything besides the validity of the statement. 
+       This work shows how to leverage zkSNARKs to add selective disclosure and unlinkability to verifiable credentials without any trusted setup. 
     " name="description">
-<meta content="xml2rfc 3.12.2" name="generator">
+<meta content="xml2rfc 3.12.3" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-setty-cfrg-spartan-incubation-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.12.2
+  xml2rfc 3.12.3
     Python 3.9.7
     appdirs 1.4.4
     ConfigArgParse 1.3
@@ -23,6 +24,7 @@
     Jinja2 2.11.3
     kitchen 1.2.6
     lxml 4.6.5
+    MarkupSafe 2.0.1
     pycountry 20.7.3
     pyflakes 2.3.1
     PyYAML 5.4.1
@@ -1011,12 +1013,12 @@ svg [stroke="fill"], svg [fill^="#fff"] {
 <table class="ears">
 <thead><tr>
 <td class="left">Internet-Draft</td>
-<td class="center">TODO - Abbreviation</td>
-<td class="right">February 2022</td>
+<td class="center">spartan</td>
+<td class="right">March 2022</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Grehan</td>
-<td class="center">Expires 30 August 2022</td>
+<td class="left">Setty</td>
+<td class="center">Expires 27 September 2022</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1029,25 +1031,26 @@ svg [stroke="fill"], svg [fill^="#fff"] {
 <dd class="internet-draft">draft-setty-cfrg-spartan-incubation-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-02-26" class="published">26 February 2022</time>
+<time datetime="2022-03-26" class="published">26 March 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2022-08-30">30 August 2022</time></dd>
+<dd class="expires"><time datetime="2022-09-27">27 September 2022</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
-      <div class="author-name">P. Grehan</div>
-<div class="org">Your Organization Here</div>
+      <div class="author-name">S. Setty</div>
+<div class="org">Microsoft Research</div>
 </div>
 </dd>
 </dl>
 </div>
-<h1 id="title">TODO - Your title</h1>
+<h1 id="title">Spartan High-speed zkSNARKs (incubation)</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">TODO Abstract<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">Spartan is a high-speed zero-knowledge proof system, a cryptographic primitive that enables a prover to prove a mathematical statement to a verifier without revealing anything besides the validity of the statement.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-2">This work shows how to leverage zkSNARKs to add selective disclosure and unlinkability to verifiable credentials without any trusted setup.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1083,7 +1086,7 @@ svg [stroke="fill"], svg [fill^="#fff"] {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 30 August 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 27 September 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1114,12 +1117,17 @@ svg [stroke="fill"], svg [fill^="#fff"] {
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
+                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="xref">1.1</a>.  <a href="#name-zksnark-signatures" class="xref">zkSNARK Signatures</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-conventions-and-definitions" class="xref">Conventions and Definitions</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="xref">3</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
@@ -1142,7 +1150,31 @@ svg [stroke="fill"], svg [fill^="#fff"] {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">TODO Introduction<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">References:
+* Official Paper: https://eprint.iacr.org/2019/550.pdf
+* Open Source Implementation: https://github.com/Microsoft/Spartan
+* Draft Repo: https://github.com/decentralized-identity/spartan_zkSNARK_signatures<a href="#section-1-1" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-1-2.1">
+          <p id="section-1-2.1.1">This is a work in progress, there are no normative specs here yet.<a href="#section-1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<p id="section-1-3">In an identity system, an issuer (e.g., DMV using Azure AD) issues a credential to a credential holder by digitally signing a set of attribute-value pairs (e.g., name, address, date of birth, photograph, etc.). The credential holder stores such credentials in a wallet app on their mobile devices and can then prove to verifiers (or relying parties) that they hold certain attribute-value pairs issued by a particular issuer. Such credentials are referred to as verifiable credentials, and there is now an emerging W3C standard for issuing such user-controlled, cryptographically verifiable credentials.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">Two basic and intuitive privacy guarantees in this context are: (1) Selective Disclosure and (2) Unlinkability. Selective Disclosure means that a credential holder can choose to disclose only a subset of the attribute-value pairs in the credential to a verifier and the verifier learns nothing about the remaining attribute-value pairs in the holder's credential. For example, if a credential such as a driver's license includes name, date of birth, full address, and a photograph, the subject can choose to selectively disclose to the verifier their name and ZIP code but nothing else, the name and their state but nothing else, or their name and date of birth but nothing else. Unlinkability means that if the same credential holder presents their credential at two different verifiers, the verifiers--even if they collude--cannot correlate that activity back to the same holder (unless the credential holder reveals uniquely identifying information).<a href="#section-1-4" class="pilcrow">¶</a></p>
+<div id="zksnark-signatures">
+<section id="section-1.1">
+        <h3 id="name-zksnark-signatures">
+<a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-zksnark-signatures" class="section-name selfRef">zkSNARK Signatures</a>
+        </h3>
+<p id="section-1.1-1">We describe how to add selective disclosure and unlinkability to verifiable credentials issued with standard digital signatures over standardized curves. When a credential holder wishes to provably disclose a subset of attribute-value pairs in their credential to a verifier, the credential holder produces a derived credential containing only the disclosed attribute-value pairs. Such derived credentials are then presented to the verifier who can verify the validity of the credential.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1-2">A challenging aspect here is: how does a credential holder produce such derived credentials, with selective disclosure and unlinkability guarantees? Note that the credential holders cannot "call the issuer" for any interaction with verifiers, as this poses additional privacy threats. Furthermore, credential holders should not be able to derive fake credentials. Standard signature schemes such as ECDSA or EdDSA do not support such functionality.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+<p id="section-1.1-3">We address both requirements with zkSNARKs, a cryptographic primitive that allows a prover to prove an arbitrary mathematical statement to a verifier. In particular, we plan to leverage Spartan, a high-speed zkSNARK that uses only standardized cryptography and offers state-of-the-art performance. Spartan also does not require any trusted setup (e.g., creating a structured reference string).<a href="#section-1.1-3" class="pilcrow">¶</a></p>
+<p id="section-1.1-4">An attractive aspect of our approach is that we can retrofit the aforementioned privacy properties to existing verifiable credentials issued with standard signature schemes (e.g., ECDSA over secp256k1 or P-256), with minimal resource overheads and engineering effort. Specifically, an issuer issues credentials as before with a standard signature scheme (e.g., ECDSA) so it is unmodified and incurs no overheads to support privacy features. Deriving a derived credential and verification of a derived credential happens on the credential holder and the verifier side, respectively. Specifically, the credential presentation protocol flow is as follows:
+* The issuer digitally signs a set of attribute-value pairs using its private key and sends ( to the holder, where is a digital signature (e.g., ECDSA signature).
+* The holder with produces a derived credential where is the disclosed subset of attribute-value pairs and is a proof of knowledge of such that: (i) is valid under the issuer's public key for , and (ii) is a subset of .
+* The verifier with knowledge of the issuer's public key verifies the derived credential .<a href="#section-1.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1201,11 +1233,11 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
       </h2>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Paul Grehan</span></div>
-<div dir="auto" class="left"><span class="org">Your Organization Here</span></div>
+        <div dir="auto" class="left"><span class="fn nameRole">Srinath Setty</span></div>
+<div dir="auto" class="left"><span class="org">Microsoft Research</span></div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:99773940+paulgrehan@users.noreply.github.com" class="email">99773940+paulgrehan@users.noreply.github.com</a>
+<a href="mailto:srinath@microsoft.com" class="email">srinath@microsoft.com</a>
 </div>
 </address>
 </section>
