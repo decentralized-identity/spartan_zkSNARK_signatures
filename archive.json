@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-03-17T00:05:21.779153+00:00",
+  "timestamp": "2022-03-27T00:05:42.866846+00:00",
   "repo": "decentralized-identity/spartan_zkSNARK_signatures",
   "labels": [
     {
@@ -131,6 +131,175 @@
       },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOG4otrc40-gVM",
+      "title": "Initial Import",
+      "url": "https://github.com/decentralized-identity/spartan_zkSNARK_signatures/pull/4",
+      "state": "MERGED",
+      "author": "quartzjer",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This fills in much of the draft template and imports some pre-existing introductory text provided by Srinath.",
+      "createdAt": "2022-03-24T20:07:21Z",
+      "updatedAt": "2022-03-26T04:17:06Z",
+      "baseRepository": "decentralized-identity/spartan_zkSNARK_signatures",
+      "baseRefName": "main",
+      "baseRefOid": "4b20e603ced343549f95a07a8f7bfcda72c5a8b4",
+      "headRepository": "decentralized-identity/spartan_zkSNARK_signatures",
+      "headRefName": "initial_import",
+      "headRefOid": "2543754e87bccae24bade8efe717bd2a6e10c6a5",
+      "closedAt": "2022-03-26T04:17:06Z",
+      "mergedAt": "2022-03-26T04:17:06Z",
+      "mergedBy": "srinathsetty",
+      "mergeCommit": {
+        "oid": "cad9c5ea7828806e2a9a7a8fc5431385490f7ba1"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOG4otrc42482P",
+          "commit": {
+            "abbreviatedOid": "2543754"
+          },
+          "author": "srinathsetty",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-03-24T21:13:55Z",
+          "updatedAt": "2022-03-24T21:13:56Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "Do we want the title to be a bit broad? For example SNARK-based verifiable credentials?",
+              "createdAt": "2022-03-24T21:13:56Z",
+              "updatedAt": "2022-03-24T21:13:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG4otrc4249Hn",
+          "commit": {
+            "abbreviatedOid": "2543754"
+          },
+          "author": "srinathsetty",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-03-24T21:15:13Z",
+          "updatedAt": "2022-03-24T21:15:13Z",
+          "comments": [
+            {
+              "originalPosition": 56,
+              "body": "A typo? \"sender (\"",
+              "createdAt": "2022-03-24T21:15:13Z",
+              "updatedAt": "2022-03-24T21:15:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG4otrc4249R2",
+          "commit": {
+            "abbreviatedOid": "2543754"
+          },
+          "author": "srinathsetty",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-03-24T21:15:57Z",
+          "updatedAt": "2022-03-24T21:15:57Z",
+          "comments": [
+            {
+              "originalPosition": 57,
+              "body": "Is there a typo here?",
+              "createdAt": "2022-03-24T21:15:57Z",
+              "updatedAt": "2022-03-24T21:15:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG4otrc429CyJ",
+          "commit": {
+            "abbreviatedOid": "2543754"
+          },
+          "author": "quartzjer",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-03-25T17:50:35Z",
+          "updatedAt": "2022-03-25T17:50:35Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "This is just a starting point, we'll definitely be updating the title in the future including renaming the draft itself.",
+              "createdAt": "2022-03-25T17:50:35Z",
+              "updatedAt": "2022-03-25T17:50:35Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG4otrc429DJN",
+          "commit": {
+            "abbreviatedOid": "2543754"
+          },
+          "author": "quartzjer",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-03-25T17:52:03Z",
+          "updatedAt": "2022-03-25T17:52:03Z",
+          "comments": [
+            {
+              "originalPosition": 56,
+              "body": "This is your original text ;) IMO let's just merge it as-is and then make an editorial pass?",
+              "createdAt": "2022-03-25T17:52:03Z",
+              "updatedAt": "2022-03-25T17:52:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG4otrc429DLF",
+          "commit": {
+            "abbreviatedOid": "2543754"
+          },
+          "author": "quartzjer",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-03-25T17:52:11Z",
+          "updatedAt": "2022-03-25T17:52:11Z",
+          "comments": [
+            {
+              "originalPosition": 57,
+              "body": "(same as above)",
+              "createdAt": "2022-03-25T17:52:11Z",
+              "updatedAt": "2022-03-25T17:52:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOG4otrc42-KbD",
+          "commit": {
+            "abbreviatedOid": "2543754"
+          },
+          "author": "srinathsetty",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-03-26T04:14:48Z",
+          "updatedAt": "2022-03-26T04:14:48Z",
+          "comments": [
+            {
+              "originalPosition": 56,
+              "body": "The original text had symbols. Perhaps they were lost when turned into markdown?",
+              "createdAt": "2022-03-26T04:14:48Z",
+              "updatedAt": "2022-03-26T04:14:48Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
