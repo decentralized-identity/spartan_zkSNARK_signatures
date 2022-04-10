@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-03-27T00:05:42.866846+00:00",
+  "timestamp": "2022-04-10T00:06:02.975464+00:00",
   "repo": "decentralized-identity/spartan_zkSNARK_signatures",
   "labels": [
     {
@@ -65,6 +65,46 @@
       "updatedAt": "2022-03-15T09:49:36Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 5,
+      "id": "I_kwDOG4otrc5HUZeB",
+      "title": "Proof of knowledge of ECDSA signature",
+      "url": "https://github.com/decentralized-identity/spartan_zkSNARK_signatures/issues/5",
+      "state": "OPEN",
+      "author": "srinathsetty",
+      "authorAssociation": "NONE",
+      "assignees": [
+        "quartzjer"
+      ],
+      "labels": [],
+      "body": "\r\n## Background on SNARKs and Spartan\r\nSpartan is a zkSNARK, so it consists of three algorithms:\r\n\r\n* Setup() --> `pp`\r\n* Prove(`pp`, `ckt`, `witness`, `io`) --> `\\pi`\r\n* Verify(`pp`, `ckt`, `io`) --> {0, 1}\r\n\r\nHere, `pp` refers to some public parameters, `ckt` is the description of a circuit whose satisfiability is being proved, `witness` is a vector of secret inputs to the circuit, and `io` is a vector of public inputs to the circuit. In Spartan, the circuit is specified with R1CS.\r\n\r\nIn general, the circuit (or R1CS) is defined over a prime field with a certain modulus `p` (i.e., the set of numbers {0, 1, ..., `p`-1}). Spartan can work over a \"sufficiently large\" prime modulus. The Spartan implementation currently uses a particular `p`, which is the scalar field of `curve25519`.\r\n\r\n## Proving the knowledge of an ECDSA signature\r\nTo prove the knowledge of an ECDSA signature, we must write a circuit with the following characteristics: \r\n\r\nSecret inputs:\r\n\r\n* Message `M`\r\n* Signature `S`\r\n\r\nPublic inputs:\r\n\r\n* The public key of the signer `PK`\r\n\r\nThe circuit itself must implement ECDSA's verify method to check if `S` is a valid signature on `M` using `PK`.\r\n\r\n\r\nThere are three options to build the circuit:\r\n\r\n1. ECDSA signatures are defined over `P-256` curve and Spartan uses `curve25519`. In this case, the circuit will *non-natively* emulate arithmetic needed to verify `P-256` signatures in the scalar field of `curve25519`.\r\n\r\n2. ECDSA signatures are defined over `secp256k1` curve and Spartan uses `secq256k1`. In this case, the circuit will *natively* execute the necessary arithmetic over `secp256k1` since the base field of `secp256k1` equals the scalar field of `secq256k1`\r\n\r\n3. ECDSA signatures are defined over `P-256` curve and Spartan uses curve (call it `Q-256`). Like in case (2), the circuit will *natively* execute the necessary arithmetic.\r\n\r\nThe primary advantage of (2) and (3) is the size of an ECDSA signature verify circuit will be ~10K gates (an order of magnitude or more smaller than with case (1)). The downside is that Spartan implementation must be updated to support these additional curves.",
+      "createdAt": "2022-04-07T20:20:44Z",
+      "updatedAt": "2022-04-08T06:04:20Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "quartzjer",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "For (1.) using non-native arithmetic that you believe will be over 100K gates, would you have a rough guess of the performance on a modern CPU? 10s of seconds? Similar for both the Prove and Verify?\r\n\r\n> The downside is that Spartan implementation must be updated to support these additional curves.\r\n\r\nHow much is involved in such an addition? Could you point to the relevant place(s) in the current codebase?\r\n\r\n",
+          "createdAt": "2022-04-07T21:26:19Z",
+          "updatedAt": "2022-04-07T21:26:19Z"
+        },
+        {
+          "author": "csuwildcat",
+          "authorAssociation": "MEMBER",
+          "body": "I'd prefer option 2",
+          "createdAt": "2022-04-07T21:46:47Z",
+          "updatedAt": "2022-04-07T21:46:47Z"
+        },
+        {
+          "author": "dwaite",
+          "authorAssociation": "MEMBER",
+          "body": "I've heard the goal stated by some that the idea of using this gadget would be for privacy while using NIST-approved curves. secp256k1 and ed25519 are not (yet) NIST approved curves. So I'd be for option 3, or option 1 if it met some ambiguous performance requirements.\r\n\r\nThe latest drafts of SP 800-186 and FIPS 186-5 add edwards25519, edwards448, and EdDSA - while not adding secp256k1. For that reason I'd _prioritize_ a proof of knowledge of EdDSA signature (e.g 25519 curve on 25519-based spartan) over option 2.\r\n\r\nI know that DIF already filed comments asking for the inclusion of secp256k1 in SP 800-186/FIPS 186-5, but do not know if there has been any dialogue there.\r\n\r\nAlso, is `Q-256` an existing thing? It made me think of the [ZKAttest](https://www.semanticscholar.org/paper/ZKAttest%3A-Ring-and-Group-Signatures-for-Existing-Faz-Hern%C3%A1ndez-Ladd/837ec64cb0fd2e7ca00894032759e0b013780216) work and their Tom curves.",
+          "createdAt": "2022-04-08T06:04:20Z",
+          "updatedAt": "2022-04-08T06:04:20Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -144,7 +184,7 @@
       "labels": [],
       "body": "This fills in much of the draft template and imports some pre-existing introductory text provided by Srinath.",
       "createdAt": "2022-03-24T20:07:21Z",
-      "updatedAt": "2022-03-26T04:17:06Z",
+      "updatedAt": "2022-04-07T18:36:36Z",
       "baseRepository": "decentralized-identity/spartan_zkSNARK_signatures",
       "baseRefName": "main",
       "baseRefOid": "4b20e603ced343549f95a07a8f7bfcda72c5a8b4",
